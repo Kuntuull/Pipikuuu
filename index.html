@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buat Kamu 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Montserrat', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Partikel */
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      animation: floatParticles linear infinite;
+    }
+
+    @keyframes floatParticles {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-100vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    .blur-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(5px);
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .halo-text {
+      font-size: 6em;
+      display: flex;
+      letter-spacing: 0.2em;
+    }
+
+    .halo-text span {
+      color: #555;
+      opacity: 0.2;
+      text-shadow: none;
+      animation: slowGlow 6s ease-in-out infinite;
+    }
+
+    .halo-text span:nth-child(1) { animation-delay: 0s; }
+    .halo-text span:nth-child(2) { animation-delay: 1s; }
+    .halo-text span:nth-child(3) { animation-delay: 2s; }
+    .halo-text span:nth-child(4) { animation-delay: 3s; }
+    .halo-text span:nth-child(5) { animation-delay: 4s; }
+    .halo-text span:nth-child(6) { animation-delay: 5s; }
+
+    @keyframes slowGlow {
+      0%, 100% {
+        opacity: 0.2;
+        color: #444;
+        text-shadow: none;
+      }
+      50% {
+        opacity: 1;
+        color: #ffffff;
+        text-shadow:
+          0 0 10px #ffb6c1,
+          0 0 20px #ffb6c1,
+          0 0 40px #ff69b4;
+      }
+    }
+
+    .subtitle {
+      margin-top: 30px;
+      font-size: 1.4em;
+      color: #eeeeee;
+      text-shadow: 0 0 5px #ffb6c1;
+      text-align: center;
+    }
+
+    .button-wrap {
+      margin-top: 40px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(to right, #ff8a9e, #ff4e80);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff4e80;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #ffb6c1;
+    }
+  </style>
+</head>
+<body>
+  <div class="blur-overlay"></div>
+
+  <!-- Generate 40 partikel -->
+  <script>
+    for (let i = 0; i < 40; i++) {
+      const particle = document.createElement("div");
+      particle.classList.add("particle");
+      particle.style.left = Math.random() * 100 + "vw";
+      particle.style.top = Math.random() * 100 + "vh";
+      particle.style.animationDuration = (5 + Math.random() * 5) + "s";
+      particle.style.animationDelay = Math.random() * 10 + "s";
+      document.body.appendChild(particle);
+    }
+  </script>
+
+  <div class="content">
+    <div class="halo-text">
+      <span>P</span><span>I</span><span>P</span><span>I</span><span>I</span><span>I</span>
+    </div>
+    <div class="subtitle">Aku ada hadiah spesial buat kamu!!</div>
+    <div class="button-wrap">
+      <button onclick="location.href='flower_neon_garden.html'">Klik disini</button>
+    </div>
+  </div>
+</body>
+</html>
